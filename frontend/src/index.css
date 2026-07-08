@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#FAFAFA] text-gray-800 antialiased;
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h4, h5, h6 {
+    @apply font-semibold tracking-tight text-gray-800;
+  }
+
+  p {
+    @apply text-gray-600 leading-relaxed;
+  }
+}
+
+@layer components {
+
+  /* ─── Navbar ──────────────────────────────── */
+  .glass-navbar {
+    @apply bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm;
+  }
+
+  /* ─── Cards ───────────────────────────────── */
+  .wellness-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(243, 244, 246, 0.8);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .wellness-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    transform: translateY(-2px);
+  }
+
+  .lavender-card {
+    background: #F7F2FF;
+    border-radius: 16px;
+    border: 1px solid #E8E2F8;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .lavender-card:hover {
+    box-shadow: 0 2px 16px rgba(142,124,195,0.10);
+    transform: translateY(-2px);
+  }
+
+  /* ─── Buttons ─────────────────────────────── */
+  .btn-primary {
+    @apply bg-[#2E7D32] hover:bg-[#256428] text-white font-semibold py-2.5 px-5 rounded-xl transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2 text-sm;
+    box-shadow: 0 1px 3px rgba(46,125,50,0.2);
+  }
+
+  .btn-secondary {
+    @apply bg-[#8E7CC3] hover:bg-[#7B68B0] text-white font-semibold py-2.5 px-5 rounded-xl transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2 text-sm;
+  }
+
+  .btn-outline {
+    @apply border border-[#2E7D32] text-[#2E7D32] hover:bg-[#E8F5E9] font-semibold py-2.5 px-5 rounded-xl transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2 text-sm bg-transparent;
+  }
+
+  .btn-outline-purple {
+    @apply border border-[#8E7CC3] text-[#8E7CC3] hover:bg-[#F7F2FF] font-semibold py-2.5 px-5 rounded-xl transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2 text-sm bg-transparent;
+  }
+
+  .btn-danger {
+    @apply bg-red-50 hover:bg-red-100 text-red-600 font-semibold py-2.5 px-5 rounded-xl border border-red-100 transition-all duration-200 active:scale-95 inline-flex items-center justify-center gap-2 text-sm;
+  }
+
+  /* ─── Form Inputs ─────────────────────────── */
+  .input-field {
+    @apply w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 bg-white transition-all;
+    outline: none;
+  }
+
+  .input-field:focus {
+    border-color: #8E7CC3;
+    box-shadow: 0 0 0 3px rgba(142, 124, 195, 0.15);
+  }
+
+  /* ─── Section Labels ──────────────────────── */
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-[#8E7CC3];
+  }
+
+  .section-heading {
+    @apply text-2xl sm:text-3xl font-bold text-[#2E7D32];
+  }
+}
+
+/* ─── Scrollbar ─────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #d1d5db; }
