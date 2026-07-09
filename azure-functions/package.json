@@ -1,0 +1,10 @@
+{
+  "name": "nutrawell-azure-functions",
+  "version": "1.0.0",
+  "description": "Serverless Azure Functions for NutraWell nutritional calculations",
+  "main": "index.js",
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {}
+}

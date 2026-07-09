@@ -5,9 +5,15 @@ import cors from 'cors';
 const app = express();
 const port = 3000;
 
-app.use(cors());
+// 1. FIXED CORS
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
 
-// Your Azure SQL configuration
+// 2. ESSENTIAL: Parse incoming JSON requests
+app.use(express.json());
+
 const config = {
     user: 'Nutrawelladmin', 
     password: 'Khyati@aug1',
@@ -19,19 +25,35 @@ const config = {
     }
 };
 
+// Route: Fetch Recipes
 app.get('/api/recipes', async (req, res) => {
     try {
-        // Connect to the database
         let pool = await sql.connect(config);
-        
-        // Query the data
         let result = await pool.request().query('SELECT * FROM Recipes');
-        
-        // Return the JSON data
         res.json(result.recordset);
     } catch (err) {
         console.error('SQL error', err);
         res.status(500).json({ error: 'Failed to fetch recipes' });
+    }
+});
+
+// Route: Login
+app.post('/api/auth/login', async (req, res) => {
+    console.log("Login attempt received:", req.body);
+    res.json({ message: "Login logic goes here" });
+});
+
+// Route: Register - ADDED THIS
+app.post('/api/register', async (req, res) => {
+    try {
+        // This will log the registration data to your terminal
+        console.log("Registration data received:", req.body);
+        
+        // Respond to the frontend
+        res.status(201).json({ message: "Registration successful" });
+    } catch (err) {
+        console.error('Registration error', err);
+        res.status(500).json({ error: 'Registration failed' });
     }
 });
 

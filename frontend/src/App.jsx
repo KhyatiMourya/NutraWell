@@ -1,21 +1,26 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './context/AuthContext';
-import Layout from './components/layout/Layout';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import Layout from "./components/layout/Layout";
 
 // Page Imports
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
-import Recipes from './pages/Recipes';
-import MealPlanner from './pages/MealPlanner';
-import Tracker from './pages/Tracker';
-import Chat from './pages/Chat';
-import Profile from './pages/Profile';
-import RecipeDetails from './pages/RecipeDetails';
-import GroceryPlanner from './pages/GroceryPlanner';
-import AdminDashboard from './pages/AdminDashboard';
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import Recipes from "./pages/Recipes";
+import MealPlanner from "./pages/MealPlanner";
+import Tracker from "./pages/Tracker";
+import Chat from "./pages/Chat";
+import Profile from "./pages/Profile";
+import RecipeDetails from "./pages/RecipeDetails";
+import GroceryPlanner from "./pages/GroceryPlanner";
+import AdminDashboard from "./pages/AdminDashboard";
 
 // Security shield wrapper for protected paths
 function ProtectedRoute({ children }) {

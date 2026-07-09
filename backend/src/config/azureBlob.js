@@ -44,6 +44,13 @@ export async function uploadImage(fileBuffer, originalName, mimeType) {
       });
       
       console.log(`Uploaded to Azure Blob Storage: ${blockBlobClient.url}`);
+      
+      // If CDN URL prefix is set, rewrite the return URL to point to CDN endpoint
+      if (process.env.AZURE_CDN_URL) {
+        const cdnBase = process.env.AZURE_CDN_URL.replace(/\/$/, '');
+        return `${cdnBase}/${containerName}/${filename}`;
+      }
+      
       return blockBlobClient.url;
     } catch (err) {
       console.error('Failed to upload to Azure Blob Storage, saving locally:', err.message);
