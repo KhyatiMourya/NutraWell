@@ -1,7 +1,7 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/assets/*.{css,js}", "/favicon.ico", "/*.png", "/*.jpg", "/*.svg"]
+    "exclude": ["/assets/*.{css,js}", "/favicon.ico", "/favicon.svg", "/icons.svg"]
   },
   "mimeTypeOverrides": {
     ".js": "application/javascript",
