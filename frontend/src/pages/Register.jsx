@@ -55,17 +55,10 @@ export function Register() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3000/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) throw new Error("Registration failed. Server error.");
-
+      await register(formData);
       navigate("/dashboard");
     } catch (err) {
-      setErrorMsg(err.message || "Registration failed.");
+      setErrorMsg(typeof err === 'string' ? err : err.message || "Registration failed.");
     } finally {
       setLoading(false);
     }
